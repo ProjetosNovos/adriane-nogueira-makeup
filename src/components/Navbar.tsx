@@ -123,7 +123,7 @@ export default function Navbar() {
         }`}
       >
         {/* Backdrop */}
-        <div className="absolute inset-0 bg-blush-100 backdrop-blur-xl" />
+        <div className="absolute inset-0 bg-blush-200 backdrop-blur-xl" />
 
         {/* Decorative elements */}
         <div className="absolute top-20 right-8 w-48 h-48 rounded-full border border-blush-200 pointer-events-none" />
