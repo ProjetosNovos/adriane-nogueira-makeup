@@ -139,13 +139,17 @@ export default function Portfolio() {
             return (
               <div
                 key={item.label}
-                className="group anim-fade-up cursor-pointer"
+                className="group anim-fade-up"
                 data-animate
                 data-delay={item.delay}
-                onClick={() => handleClick(index)}
               >
                 <div
-                  className={`${isLarge ? 'aspect-[3/5]' : 'aspect-[3/4]'} ${item.mask} overflow-hidden relative`}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => handleClick(index)}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleClick(index) }}
+                  className={`${isLarge ? 'aspect-[3/5]' : 'aspect-[3/4]'} ${item.mask} overflow-hidden relative cursor-pointer select-none`}
+                  style={{ touchAction: 'manipulation' }}
                 >
                   {item.images.map((src, imgIndex) => (
                     <img
