@@ -175,15 +175,15 @@ export default function Hero() {
                 pointerEvents: i === phaseIndex ? 'auto' : 'none',
               }}
             >
-              <p className="text-gold text-xs tracking-[0.3em] uppercase font-body mb-3">
+              <p className="text-gold text-[10px] tracking-[0.3em] uppercase font-body mb-2">
                 {phase.tagline}
               </p>
-              <h1 className="font-heading text-5xl sm:text-6xl text-white leading-[1.1] mb-4">
+              <h1 className="font-heading text-3xl sm:text-5xl text-white leading-[1.1] mb-3">
                 {phase.title[0]}
                 <br />
                 {phase.title[1]}
               </h1>
-              <p className="font-body text-white/60 text-sm leading-relaxed mb-8 max-w-[340px]">
+              <p className="font-body text-white/60 text-xs leading-relaxed mb-6 max-w-[300px]">
                 {phase.description}
               </p>
 
