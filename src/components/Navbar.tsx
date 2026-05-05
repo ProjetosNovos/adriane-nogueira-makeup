@@ -51,11 +51,11 @@ export default function Navbar() {
 
   return (
     <>
-    {/* Fixed logo — hides on 3rd hero phase */}
+    {/* Fixed logo — hides on 3rd hero phase and when menu is open */}
     <a
       href="#"
       className="fixed top-5 left-6 z-[60] select-none transition-opacity duration-500 flex flex-col items-end"
-      style={{ opacity: logoVisible ? 1 : 0, pointerEvents: logoVisible ? 'auto' : 'none' }}
+      style={{ opacity: logoVisible && !menuOpen ? 1 : 0, pointerEvents: logoVisible && !menuOpen ? 'auto' : 'none' }}
     >
       <span className="font-heading text-2xl text-white tracking-wide">Adriane Nogueira</span>
       <span className="font-body text-xs text-white/60 uppercase tracking-[0.3em] -mt-0.5">Makeup</span>
@@ -132,12 +132,12 @@ export default function Navbar() {
 
         {/* Header */}
         <div className="relative flex items-center justify-between px-6 py-5">
-          <span className="font-heading text-2xl text-cream-900 tracking-wide">
+          <span className="font-heading text-2xl text-black tracking-wide">
             Adriane Nogueira
           </span>
           <button
             onClick={() => setMenuOpen(false)}
-            className="w-10 h-10 flex items-center justify-center rounded-full border border-cream-400 text-cream-700 hover:text-blush hover:border-blush transition-all duration-300"
+            className="w-10 h-10 flex items-center justify-center rounded-full border border-black/20 text-black hover:text-blush hover:border-blush transition-all duration-300"
             aria-label="Fechar menu"
           >
             <X size={20} strokeWidth={1.5} />
@@ -168,16 +168,16 @@ export default function Navbar() {
                   }}
                 >
                   <div className="flex items-center gap-4">
-                    <span className="text-gold/40 font-body text-xs tabular-nums">
+                    <span className="text-black/40 font-body text-xs tabular-nums">
                       0{i + 1}
                     </span>
-                    <span className="font-heading text-[1.6rem] text-cream-900 group-hover:text-blush tracking-wide transition-colors duration-300">
+                    <span className="font-heading text-[1.6rem] text-black group-hover:text-blush tracking-wide transition-colors duration-300">
                       {link.label}
                     </span>
                   </div>
                   <ArrowRight
                     size={16}
-                    className="text-cream-400 group-hover:text-blush group-hover:translate-x-1 transition-all duration-300"
+                    className="text-black/30 group-hover:text-blush group-hover:translate-x-1 transition-all duration-300"
                   />
                 </a>
               </li>
@@ -190,7 +190,7 @@ export default function Navbar() {
               setMenuOpen(false)
               openModal('agendar')
             }}
-            className="mt-10 w-full font-body text-sm uppercase tracking-[0.2em] px-8 py-4 rounded-full bg-gold text-cream-900 hover:bg-gold-300 transition-all duration-300 flex items-center justify-center gap-3"
+            className="mt-10 w-full font-body text-sm uppercase tracking-[0.2em] px-8 py-4 rounded-full bg-black text-white hover:bg-black/80 transition-all duration-300 flex items-center justify-center gap-3"
             style={{
               transitionDelay: menuOpen ? '350ms' : '0ms',
               opacity: menuOpen ? 1 : 0,
@@ -217,7 +217,7 @@ export default function Navbar() {
               href="https://instagram.com/adrianenogueiramakeup"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-cream-700 hover:text-blush transition-colors duration-300"
+              className="flex items-center gap-2.5 text-black/70 hover:text-blush transition-colors duration-300"
             >
               <Instagram size={18} strokeWidth={1.5} />
               <span className="font-body text-sm tracking-wide">
@@ -225,7 +225,7 @@ export default function Navbar() {
               </span>
             </a>
 
-            <span className="text-cream-600 text-xs font-body">
+            <span className="text-black/40 text-xs font-body">
               Brasília, DF
             </span>
           </div>
