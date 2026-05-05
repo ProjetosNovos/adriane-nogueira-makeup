@@ -1,6 +1,8 @@
 import { Crown, Sparkles, GraduationCap, Home } from 'lucide-react'
 import { useWhatsApp } from '../WhatsAppContext'
 
+const base = import.meta.env.BASE_URL
+
 const services = [
   {
     name: 'Maquiagem para Noivas',
@@ -10,7 +12,7 @@ const services = [
       'Maquiagem impecável para o dia mais especial da sua vida. Técnicas de longa duração que garantem beleza do altar à última dança.',
     Icon: Crown,
     context: 'noivas',
-    image: '/noivasServicos.jpg',
+    image: `${base}noivasServicos.jpg`,
     objectPosition: '50% 15%',
   },
   {
@@ -21,7 +23,7 @@ const services = [
       'Produção completa para madrinhas e convidadas especiais. Beleza harmoniosa para brilhar na celebração.',
     Icon: Sparkles,
     context: 'social',
-    image: '/madrinhasServicos.jpg',
+    image: `${base}madrinhasServicos.jpg`,
   },
   {
     name: 'Curso de Automaquiagem',
@@ -31,7 +33,7 @@ const services = [
       'Aprenda técnicas profissionais para valorizar sua beleza no dia a dia. Aulas personalizadas para seu tipo de rosto e estilo.',
     Icon: GraduationCap,
     context: 'curso',
-    image: '/cursoServicos.jpg',
+    image: `${base}cursoServicos.jpg`,
   },
   {
     name: 'Atendimento em Domicílio',
@@ -41,7 +43,7 @@ const services = [
       'Levamos toda a estrutura profissional até você. Preparação no conforto da sua casa com qualidade de estúdio.',
     Icon: Home,
     context: 'domicilio',
-    image: '/domicilioServicos.jpg',
+    image: `${base}domicilioServicos.jpg`,
   },
 ]
 

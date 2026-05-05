@@ -1,25 +1,27 @@
+const base = import.meta.env.BASE_URL
+
 const portfolioItems = [
   {
     label: "Noiva",
-    image: "/resultado1.jpg",
+    image: `${base}resultado1.jpg`,
     mask: "organic-mask-1",
     delay: "1",
   },
   {
     label: "Madrinha",
-    image: "/resultado2.jpg",
+    image: `${base}resultado2.jpg`,
     mask: "organic-mask-2",
     delay: "2",
   },
   {
     label: "Social",
-    image: "/resultado3.jpg",
+    image: `${base}resultado3.jpg`,
     mask: "organic-mask-3",
     delay: "3",
   },
   {
     label: "Automaquiagem",
-    image: "/resultado4.jpg",
+    image: `${base}resultado4.jpg`,
     mask: "organic-mask-1",
     delay: "4",
   },

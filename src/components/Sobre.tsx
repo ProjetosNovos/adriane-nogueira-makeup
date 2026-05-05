@@ -1,4 +1,5 @@
-const fotoAdriana = "/profissionalAdriana.png";
+const base = import.meta.env.BASE_URL
+const fotoAdriana = `${base}profissionalAdriana.png`;
 
 const metrics = [
   { value: "+5", label: "Anos de Experiência" },

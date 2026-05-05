@@ -2,10 +2,12 @@ import { useState, useEffect, useRef } from 'react'
 import { Star, ArrowRight, Sparkles, Heart, Calendar } from 'lucide-react'
 import { useWhatsApp } from '../WhatsAppContext'
 
+const base = import.meta.env.BASE_URL
+
 const images = [
-  '/1.svg',
-  '/3.svg',
-  '/2.svg',
+  `${base}1.svg`,
+  `${base}3.svg`,
+  `${base}2.svg`,
 ]
 
 const phases = [
