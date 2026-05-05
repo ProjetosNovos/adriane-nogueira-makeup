@@ -1,33 +1,45 @@
+import { useState } from 'react'
+
 const base = import.meta.env.BASE_URL
 
 const portfolioItems = [
   {
     label: "Noiva",
-    image: `${base}resultado1.jpg`,
+    images: [`${base}resultado1.jpg`, `${base}resultado5.jpg`, `${base}resultado9.jpg`],
     mask: "organic-mask-1",
     delay: "1",
   },
   {
     label: "Madrinha",
-    image: `${base}resultado2.jpg`,
+    images: [`${base}resultado2.jpg`, `${base}resultado6.jpg`, `${base}resultado10.jpg`],
     mask: "organic-mask-2",
     delay: "2",
   },
   {
     label: "Social",
-    image: `${base}resultado3.jpg`,
+    images: [`${base}resultado3.jpg`, `${base}resultado7.jpg`, `${base}resultado11.jpg`],
     mask: "organic-mask-3",
     delay: "3",
   },
   {
     label: "Automaquiagem",
-    image: `${base}resultado4.jpg`,
+    images: [`${base}resultado4.jpg`, `${base}resultado8.jpg`, `${base}resultado12.jpg`],
     mask: "organic-mask-1",
     delay: "4",
   },
 ];
 
 export default function Portfolio() {
+  const [activeIndexes, setActiveIndexes] = useState<number[]>(portfolioItems.map(() => 0))
+
+  const handleClick = (cardIndex: number) => {
+    setActiveIndexes(prev => {
+      const next = [...prev]
+      next[cardIndex] = (next[cardIndex] + 1) % portfolioItems[cardIndex].images.length
+      return next
+    })
+  }
+
   return (
     <section id="portfolio" className="relative bg-cream-50 py-20 lg:py-28 px-6 overflow-hidden">
       {/* Decorative background elements */}
@@ -122,22 +134,40 @@ export default function Portfolio() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mt-12 items-center">
           {portfolioItems.map((item, index) => {
             const isLarge = index === 0 || index === 2;
+            const currentImageIndex = activeIndexes[index];
 
             return (
               <div
                 key={item.label}
-                className="group anim-fade-up"
+                className="group anim-fade-up cursor-pointer"
                 data-animate
                 data-delay={item.delay}
+                onClick={() => handleClick(index)}
               >
                 <div
                   className={`${isLarge ? 'aspect-[3/5]' : 'aspect-[3/4]'} ${item.mask} overflow-hidden relative`}
                 >
-                  <img
-                    src={item.image}
-                    alt={`Resultado — ${item.label}`}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                  {item.images.map((src, imgIndex) => (
+                    <img
+                      key={src}
+                      src={src}
+                      alt={`Resultado — ${item.label}`}
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                        imgIndex === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    />
+                  ))}
+                </div>
+                {/* Dots indicator */}
+                <div className="flex justify-center gap-1.5 mt-2">
+                  {item.images.map((_, dotIndex) => (
+                    <span
+                      key={dotIndex}
+                      className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                        dotIndex === currentImageIndex ? 'bg-blush w-3' : 'bg-blush/30'
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
             );
